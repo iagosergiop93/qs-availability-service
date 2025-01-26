@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: availability-service
+  profiles:
+    active: dev
+
+  config:
+    import: configserver:http://localhost:8888
+
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      username: 
+      password: 
+      label: main
+
+  datasource:
+    driver-class-name: 
+    url: 
+    username: 
+    password: 
+
