@@ -3,6 +3,8 @@ package com.booking.qs_availability_service.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.domain.Persistable;
 
 import java.time.Instant;
@@ -12,8 +14,11 @@ import java.time.Instant;
 public abstract class AbstractEntity<ID> implements Persistable<ID> {
 
     @JsonIgnore
+    @CreationTimestamp
     Instant createdAt;
+
     @JsonIgnore
+    @UpdateTimestamp
     Instant updatedAt;
 
     @Transient
@@ -23,18 +28,6 @@ public abstract class AbstractEntity<ID> implements Persistable<ID> {
     @Override
     public boolean isNew() {
         return isNew;
-    }
-
-    @PrePersist
-    public void markNotNew() {
-        this.isNew = false;
-        createdAt = Instant.now();
-        updatedAt = Instant.now();
-    }
-
-    @PreUpdate
-    public void onUpdate() {
-        updatedAt = Instant.now();
     }
 
     @PostLoad

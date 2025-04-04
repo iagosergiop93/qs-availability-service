@@ -1,12 +1,13 @@
 package com.booking.qs_availability_service.domain.staffavailability;
 
 import com.booking.qs_availability_service.domain.AbstractEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Objects;
 
 @Data
@@ -17,10 +18,12 @@ public class StaffAvailability extends AbstractEntity<String> {
     private String id;
     private String orgId;
     private String locationId;
-    private String startTime;
-    private String endTime;
-    private Instant date;
-    private String availabilityType;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private LocalDate date;
+
+    @Enumerated(EnumType.STRING)
+    private StaffAvailabilityType availabilityType;
     private Integer availableStaffCount;
 
     @Override

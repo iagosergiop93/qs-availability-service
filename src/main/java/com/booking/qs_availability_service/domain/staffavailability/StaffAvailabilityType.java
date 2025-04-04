@@ -1,8 +1,10 @@
 package com.booking.qs_availability_service.domain.staffavailability;
 
 public enum StaffAvailabilityType {
-    REGULAR_HOURS("regular_hours"),
-    TEMPORARY_HOURS("temporary_hours");
+    ALL_WEEK("all_week"),
+    WEEKDAYS("weekdays"),
+    WEEKENDS("weekends"),
+    TEMP_HOURS("temp_hours");
 
     private final String value;
 

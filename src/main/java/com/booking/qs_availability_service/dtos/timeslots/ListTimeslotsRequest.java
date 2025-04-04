@@ -5,10 +5,9 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class CreateApptSlots {
+public class ListTimeslotsRequest {
     private String orgId;
     private String locationId;
-    private Integer slotDurationMinutes;
     private LocalDate startDate;
     private LocalDate endDate;
 }

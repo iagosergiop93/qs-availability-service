@@ -1,6 +1,5 @@
 package com.booking.qs_availability_service.controllers;
 
-import com.booking.qs_availability_service.domain.staffavailability.StaffAvailability;
 import com.booking.qs_availability_service.dtos.Response;
 import com.booking.qs_availability_service.dtos.staffavailability.ListAvailabilityByLocationRequest;
 import com.booking.qs_availability_service.dtos.staffavailability.StaffAvailabilityDto;
@@ -33,6 +32,6 @@ public class StaffAvailabilityController {
 
     @PostMapping("/api/availability")
     public Response<StaffAvailabilityDto> addStaffAvailability(@RequestBody StaffAvailabilityDto request) {
-        return service.addStaffAvailability(request);
+        return service.upsertStaffAvailability(request);
     }
 }
